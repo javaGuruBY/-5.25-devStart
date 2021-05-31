@@ -1,0 +1,82 @@
+import java.util.Scanner;
+import java.util.logging.Logger;
+
+public class UserLoginService {
+
+    private String usersPassword;
+    private int temp;
+
+    public UserLoginService() {
+    }
+
+    public int getTemp() {
+        return temp;
+    }
+
+    public void setTemp(int temp) {
+        this.temp = temp;
+    }
+
+    public String getUsersPassword() {
+        return usersPassword;
+    }
+
+    public void setUsersPassword(String usersPassword) {
+        this.usersPassword = usersPassword;
+    }
+
+    public boolean login (User user, String password) {
+        if (user.getPassword().equals(password)) {
+            user.reset();
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+    public void attempts () {
+        User user = new User();
+        setTemp(user.getQuantity());
+    }
+
+    public void restAttempts() {
+        setTemp(getTemp() - 1);
+    }
+
+
+
+    public void action () {
+        User user = new User();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the password");
+        setUsersPassword(scanner.nextLine());
+        login(user, getUsersPassword());
+        if (getTemp() == 1) {
+            user.blocked();
+        }
+        if (login(user, getUsersPassword())) {
+            System.out.println("Password is correct. Log in");
+        } else if (!login(user, getUsersPassword()) && getTemp() != 1) {
+            System.out.println("Password isn't correct");
+            System.out.println("Try again?\n(Yes or no)");
+            String answer = scanner.next();
+            if (answer.equalsIgnoreCase("yes")) {
+                restAttempts();
+                System.out.printf("You have %d attempts\n", getTemp());
+                action();
+            } else if (answer.equalsIgnoreCase("no")) {
+                System.out.println("Try again later");
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        UserLoginService userLoginService = new UserLoginService();
+        User user = new User();
+        System.out.printf("Your login is: '%s'\n", user.getLogin());
+        userLoginService.attempts();
+        userLoginService.action();
+    }
+}
