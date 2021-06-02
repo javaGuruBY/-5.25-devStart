@@ -34,7 +34,7 @@ public class MyMagickBall {
                 "Very doubtful"
         );
         var r = new Random();
-        var rand = r.nextInt(50);
+        var rand = r.nextInt(20);
         log.info(answers.get(rand));
     }
 }
