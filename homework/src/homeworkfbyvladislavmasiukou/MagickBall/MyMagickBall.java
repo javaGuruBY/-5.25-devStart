@@ -1,12 +1,15 @@
 package MagickBall;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Logger;
+
 
 public class MyMagickBall {
     public static void main(String[] args) {
-        var log = Logger.getLogger("Asks");
+        Logger log = LoggerFactory.getLogger("Asks");
         List<String> answers = List.of(
                 //positive answers
                 "It is certain",

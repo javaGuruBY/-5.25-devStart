@@ -1,10 +1,11 @@
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.logging.Logger;
 
 public class CreditCardTest {
 
-   private static Logger log = Logger.getLogger("TestCard");
+   private static Logger log = LoggerFactory.getLogger("TestCard");
     CreditCard testCard = new CreditCard(12345, 12345);
 
     @Test
@@ -22,7 +23,8 @@ public class CreditCardTest {
     }
 
     public void withDrawTest(){
-        testCard.setBalance(0);
+        testCard.setBalance(0); //just for test we need set balance = 0;
+
         double a = 200;
         double b = 500;
         double expected = 300;

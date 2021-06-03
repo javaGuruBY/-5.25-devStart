@@ -1,4 +1,5 @@
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CreditCard {
 
@@ -8,7 +9,7 @@ public class CreditCard {
     private double creditLimit;
     private double loanDept;
 
-    Logger log = Logger.getLogger("CreditCard");
+    Logger log = LoggerFactory.getLogger("CreditCard");
 
     CreditCard(int num, int pin) {
         this.numberOfCard = num;

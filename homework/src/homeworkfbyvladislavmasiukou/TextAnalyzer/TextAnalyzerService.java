@@ -1,8 +1,7 @@
 package TextAnalyzer;
 
-
-
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static TextAnalyzer.Text.myThoughts;
 
@@ -10,7 +9,7 @@ public class TextAnalyzerService {
 
     public static void main(String[] args) {
 
-        Logger log = Logger.getLogger("TextAnalyzer");
+        Logger log = LoggerFactory.getLogger("TextAnalyzer");
 
         String[] sentencesArray = myThoughts.split("\\.");
         String[] wordsArray = myThoughts.split("\\s");
