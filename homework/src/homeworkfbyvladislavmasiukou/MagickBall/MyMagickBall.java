@@ -1,15 +1,10 @@
 package MagickBall;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.List;
 import java.util.Random;
 
-
 public class MyMagickBall {
-    public static void main(String[] args) {
-        Logger log = LoggerFactory.getLogger("Asks");
+
         List<String> answers = List.of(
                 //positive answers
                 "It is certain",
@@ -36,8 +31,9 @@ public class MyMagickBall {
                 "Outlook not so good",
                 "Very doubtful"
         );
-        var r = new Random();
-        var rand = r.nextInt(20);
-        log.info(answers.get(rand));
-    }
+        public int ShakeBall() {
+            Random r = new Random();
+            int rand = r.nextInt(20);
+            return rand;
+        }
 }
